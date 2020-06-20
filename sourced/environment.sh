@@ -37,7 +37,6 @@ export LESSCHARSET=utf-8
 export EDITOR=vim
 export VISUAL=vim
 
-export EDITOR="vim";
 export MANPAGER="less -X";
 
 export GREP_OPTIONS="--color=auto";
@@ -45,6 +44,7 @@ export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 export GOPATH="$HOME/go"
 export MANPATH="$(brew --prefix)/opt/coreutils/libexec/gnuman:$MANPATH"
+
 
 #########################################
 # HISTORY set                           #

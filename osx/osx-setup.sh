@@ -19,7 +19,14 @@ fi
 ################################################################################
 
 echo " > Installing xcode-stuff..."
-xcode-select --install
+##################################
+# Install command line dev tools #
+##################################
+/usr/bin/xcode-select -p > /dev/null 2>&1
+if [ $# != 0 ]; then
+  xcode-select --install
+  sudo xcodebuild -license accept
+fi
 
 
 ################################################################################
@@ -36,6 +43,8 @@ fi
 echo " > Updating homebrew..."
 brew update
 
+brew upgrade
+
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 echo " > Installing brew packages and cask applications..."
@@ -48,7 +57,6 @@ rm -f -r /Library/Caches/Homebrew/*
 
 $(brew --prefix)/opt/fzf/install
 
-brew cask alfred link
 
 ################################################################################
 # ZSH
