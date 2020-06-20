@@ -1,0 +1,28 @@
+# Load the default .profile, should be shell safe
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
+
+for file in "$HOME"/dotfiles/sourced/*; do
+   source "$file"
+done
+
+# activate extended globbing
+setopt extended_glob
+
+# autoload function in $ZSH_CUSTOM/functions and autocompletions
+if [ -d "$ZSH_CUSTOM/functions" ]; then
+  for funcfile in "$ZSH_CUSTOM"/functions/^_*(.); do
+    funcname=$(basename "$funcfile")
+    autoload "$funcname"
+  done
+
+  # if there are autocompletion files, force reload to activate them
+  set -- "$ZSH_CUSTOM"/functions/_*
+  if [ "$#" -gt 0 ]; then
+    source $ZSH/oh-my-zsh.sh
+  fi
+fi
+
+# de-duplicate PATH
+if [ -f "$ZSH_CUSTOM/functions/dedup_PATH" ]; then
+  dedup_PATH
+fi

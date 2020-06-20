@@ -1,0 +1,32 @@
+{
+	"bootstrapped": true,
+	"installed_packages":
+	[
+		"Advanced CSV",
+		"All Autocomplete",
+		"Base Encoder",
+		"Dockerfile Syntax Highlighting",
+		"Emmet",
+		"GitGutter",
+		"Gitignored File Excluder",
+		"Golang Build",
+		"HTML-CSS-JS Prettify",
+		"HTMLBeautify",
+		"Indent XML",
+		"LanguageTool",
+		"LaTeX Word Count",
+		"LaTeXTools",
+		"Neon Color Scheme",
+		"Numix Theme",
+		"OmniSharp",
+		"Package Control",
+		"Pretty JSON",
+		"SideBarEnhancements",
+		"StringUtilities",
+		"SublimeLinter",
+		"SublimeLinter-shellcheck",
+		"Terminal",
+		"Thesaurus",
+		"WordCount"
+	]
+}

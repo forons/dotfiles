@@ -1,0 +1,60 @@
+#            ██   ██                               ████ ██
+#     █████ ░░   ░██                              ░██░ ░░   █████
+#    ██░░░██ ██ ██████  █████   ██████  ███████  ██████ ██ ██░░░██
+#   ░██  ░██░██░░░██░  ██░░░██ ██░░░░██░░██░░░██░░░██░ ░██░██  ░██
+#   ░░██████░██  ░██  ░██  ░░ ░██   ░██ ░██  ░██  ░██  ░██░░██████
+#    ░░░░░██░██  ░██  ░██   ██░██   ░██ ░██  ░██  ░██  ░██ ░░░░░██
+#     █████ ░██  ░░██ ░░█████ ░░██████  ███  ░██  ░██  ░██  █████
+#    ░░░░░  ░░    ░░   ░░░░░   ░░░░░░  ░░░   ░░   ░░   ░░  ░░░░░
+
+# Taken from https://blog.scottnonnenberg.com/better-git-configuration/
+
+[user]
+    name = Daniele Foroni
+    email = daniele.foroni@gmail.com
+
+[github]
+    user = forons
+
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+
+    # Enable parallel I/O for operations like "git diff".
+    preloadindex = true
+
+    # Use 12 characters for the abbreviated commit hash. I can currently make
+    # do with 10, but this should provide a certain level of safety for the
+    # near-ish future. See the interesting and well-researched article at
+    # http://blog.cuviper.com/2013/11/10/how-short-can-git-abbreviate/
+    abbrev = 12
+
+[alias]
+    # undo = reset --soft HEAD^
+    # Not quite as common as an amend, but still common
+    # https://git-scm.com/docs/git-reset#git-reset-emgitresetemltmodegtltcommitgt
+
+    stash-all = stash save --include-untracked
+    # We wanna grab those pesky un-added files!
+    # https://git-scm.com/docs/git-stash
+
+    glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    # No need for a GUI - a nice, colorful, graphical representation
+    # https://git-scm.com/docs/git-log
+    # via https://medium.com/@payload.dd/thanks-for-the-git-st-i-will-use-this-4da5839a21a4
+
+    unstage = reset HEAD --
+
+[credential]
+    helper = osxkeychain
+
+[pager]
+    diff = diff-so-fancy | less --tabs=1,5 -RFX
+    show = diff-so-fancy | less --tabs=1,5 -RFX
+
+[status]
+    showUntrackedFiles = all
+
+[apply]
+    # Detect whitespace errors when applying a patch
+    whitespace = fix
