@@ -79,8 +79,8 @@ syntax on " Enable syntax highlighting
 let g:solarized_termcolors=256
 let macvim_skip_colorscheme=1
 set nowrap
-set tabstop=
-set shiftwidth=
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent

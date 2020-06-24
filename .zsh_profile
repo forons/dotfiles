@@ -26,3 +26,4 @@ fi
 if [ -f "$ZSH_CUSTOM/functions/dedup_PATH" ]; then
   dedup_PATH
 fi
+

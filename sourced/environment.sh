@@ -58,9 +58,6 @@ export HISTFILE=~/.zsh_history;
 HIST_STAMPS='%Y-%m-%d %T '
 export HISTTIMEFORMAT="%Y-%m-%d %T ";
 
-# Use one command per line
-shopt -s cmdhist
-
 # Treat the '!' character specially during expansion.
 setopt BANG_HIST
 
@@ -71,7 +68,6 @@ setopt EXTENDED_HISTORY
 setopt INC_APPEND_HISTORY
 
 # append instead of rewrite (should be cool with multiple instances"
-shopt -s histappend
 setopt APPEND_HISTORY
 
 # Share history between all sessions.
@@ -102,13 +98,13 @@ setopt HIST_BEEP
 # PATH set                              #
 #########################################
 PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
-PATH=${PATH}:/usr/local/bin
-PATH=${PATH}:/usr/local/sbin
-PATH=${PATH}:/usr/bin
-PATH=${PATH}:/bin
-PATH=${PATH}:/usr/sbin
-PATH=${PATH}:/sbin
-PATH=${PATH}:/usr/local/git/bin
+#PATH=${PATH}:/usr/local/bin
+#PATH=${PATH}:/usr/local/sbin
+#PATH=${PATH}:/usr/bin
+#PATH=${PATH}:/bin
+#PATH=${PATH}:/usr/sbin
+#PATH=${PATH}:/sbin
+#PATH=${PATH}:/usr/local/git/bin
 PATH=${PATH}:"$HOME"/dotfiles/misc
 PATH=${PATH}:"$HOME"/dotfiles/bin
 PATH=${PATH}:"$HOME"/go/bin

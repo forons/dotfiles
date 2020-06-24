@@ -151,13 +151,13 @@ defaults write com.apple.systemuiserver menuExtras -array \
 
 defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" -bool false
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.airport" -bool true
-defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.appleuser" -bool true
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.appleuser" -bool false
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.battery" -bool true
-defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool true
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool false
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
 
 # Map navigation swipe to 3 fingers (turn this off to get 4-finger navigation swipe)
-defaults write com.apple.systempreferences com.apple.preference.trackpad.3fdrag-4fNavigate -bool false
+defaults write com.apple.systempreferences com.apple.preference.trackpad.3fdrag-4fNavigate -bool true
 
 # Set the time using network time
 systemsetup -setusingnetworktime on

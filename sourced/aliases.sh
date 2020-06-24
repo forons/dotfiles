@@ -12,12 +12,15 @@
 # Quick config                          #
 #########################################
 alias hosts="sudo $EDITOR /etc/hosts"
+alias python="/usr/local/bin/python3"
+alias pip='/usr/local/bin/pip3'
+
 
 #########################################
 # Shorten common commands               #
 #########################################
-alias ls="ls -hF --color=auto"
-alias ll="ls -lahF --color=auto"
+alias ls="ls -hFG"
+alias ll="ls -lahFG"
 alias "cd.."="cd ../"
 alias rmrf="rm -rf"
 alias mkdir="mkdir -p"

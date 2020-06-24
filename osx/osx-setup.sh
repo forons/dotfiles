@@ -8,7 +8,7 @@ echo " > Starting Mac OSX Configuration..."
 ################################################################################
 if [ ! -f "$HOME/.ssh/id_rsa.pub" ]; then
     echo "There is no SSH public key here: $HOME/.ssh/id_rsa.pub. Aborting."
-    exit 1
+#    exit 1
 else
     echo "SSH public key exists here $HOME/.ssh/id_rsa.pub, so we continue!"
 fi
@@ -23,10 +23,13 @@ echo " > Installing xcode-stuff..."
 # Install command line dev tools #
 ##################################
 /usr/bin/xcode-select -p > /dev/null 2>&1
-if [ $# != 0 ]; then
-  xcode-select --install
-  sudo xcodebuild -license accept
-fi
+# if [ $# != 0 ]; then
+#  xcode-select --install
+#  sudo xcodebuild -license accept
+# fi
+
+xcode-select --install
+# sudo xcodebuild -license accept
 
 
 ################################################################################
@@ -36,7 +39,7 @@ fi
 # Check for Homebrew, install it if we don't have it
 if test ! $(which brew); then
   echo " > Installing homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   brew doctor || exit 1
 fi
 

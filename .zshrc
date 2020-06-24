@@ -56,7 +56,7 @@ HYPHEN_INSENSITIVE="true"
 # HIST_STAMPS="yyyy/mm/dd hh:MM:ss: "
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$HOME/zsh-custom
+ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -64,7 +64,6 @@ ZSH_CUSTOM=$HOME/zsh-custom
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   brew
-  brew-cask
   colored-man-pages
   colorize
   git
@@ -79,6 +78,7 @@ plugins=(
 )
 
 # User configuration
+ZSH_DISABLE_COMPFIX=true
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -121,9 +121,9 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Load .zprofile
-if [ -f $HOME/.zprofile ]; then
-    source $HOME/.zprofile
+if [ -f $HOME/.zsh_profile ]; then
+    source $HOME/.zsh_profile
 fi
 
-# enable dircolors
-eval $(dircolors)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
