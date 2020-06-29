@@ -7,12 +7,18 @@ echo " > Starting Mac OSX Configuration..."
 # SSH KEY
 ################################################################################
 if [ ! -f "$HOME/.ssh/id_rsa.pub" ]; then
-    echo "There is no SSH public key here: $HOME/.ssh/id_rsa.pub. Aborting."
-#    exit 1
+    echo "There is no SSH public key here: $HOME/.ssh/id_rsa.pub."
+    while true; do
+        read -p "Do you still want to continue? [Y/n]" yn
+        case $yn in
+            [Yy]* ) break;;
+            [Nn]* ) exit 1;;
+            * ) echo "Invalid input. Please enter yes or no.";;
+        esac
+    done
 else
     echo "SSH public key exists here $HOME/.ssh/id_rsa.pub, so we continue!"
 fi
-
 
 ################################################################################
 # XCODE
@@ -104,6 +110,7 @@ echo " > Sublime Text installation..."
 sh "$HOME"/dotfiles/sublime/sublime.sh
 
 echo " > Adding SSH config..."
+mkdir -p "$HOME"/.ssh/
 ln -s "$HOME"/dotfiles/.ssh/config "$HOME"/.ssh/config
 
 echo " > Python updates..."
@@ -115,7 +122,8 @@ pip install wheel virtualenv jupyterlab
 # MAC CONFIG
 ################################################################################
 
-sh "$HOME/"dotfiles/osx/osx-defaults.sh
+sh "$HOME"/dotfiles/osx/osx-defaults.sh
 
 echo " > Processing completed!"
 echo " > Enjoy your fresh-new setup!"
+
