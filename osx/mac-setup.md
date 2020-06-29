@@ -12,3 +12,5 @@ https://github.com/rxhanson/Rectangle
 caffeine vs amphetamine
 
 https://github.com/mathiasbynens/dotfiles/blob/main/.macos
+
+https://switowski.com/blog/favorite-mac-tools

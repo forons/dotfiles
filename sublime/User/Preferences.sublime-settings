@@ -6,7 +6,7 @@
 		"crowdsourcing",
 		"gauge"
 	],
-	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"color_scheme": "Packages/User/Monokai (SL).tmTheme",
 	"draw_minimap": false,
 	"draw_white_space": "selection",
 	"extra_file_exclude_patterns":

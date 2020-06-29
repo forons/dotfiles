@@ -55,7 +55,7 @@ call plug#end()
 " ==============================
 "
 set number " Display line numbers on the left
-set colorcolumn=81,121 " Set a column at 81 chars wide
+set colorcolumn=80,121 " Set a column at 81 chars wide
 set encoding=utf-8
 set guifont=Inconsolata\ for\ Powerline
 let g:syntastic_always_populate_loc_list = 1
@@ -92,7 +92,7 @@ set smartindent
 set hlsearch " highlight all results of a search
 set incsearch " highlight first result of search whilst typing
 set ignorecase " Use case insensitive search
-set smartcase  "except when using capital letters
+set smartcase  " except when using capital letters
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor

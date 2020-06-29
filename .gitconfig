@@ -8,6 +8,7 @@
 #    ░░░░░  ░░    ░░   ░░░░░   ░░░░░░  ░░░   ░░   ░░   ░░  ░░░░░
 
 # Taken from https://blog.scottnonnenberg.com/better-git-configuration/
+# and from https://switowski.com/blog/configuring-git
 
 [user]
     name = Daniele Foroni
@@ -16,9 +17,33 @@
 [github]
     user = forons
 
+[color]
+    ui = auto
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[color "diff"]
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+
 [core]
     editor = vim
     excludesfile = ~/.gitignore
+
+    pager = diff-so-fancy | less --tabs=4 -RFX
 
     # Enable parallel I/O for operations like "git diff".
     preloadindex = true
@@ -30,6 +55,18 @@
     abbrev = 12
 
 [alias]
+    # Squashing commits. E.g., git squash 5 -> squashes the last 5 commits into 1
+    squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
+
+    # Amend commit
+    amend = commit --amend
+
+    # Show aliases
+    aliases = config --get-regexp alias
+
+    # Ignore repeated git
+    git = !exec git
+
     # undo = reset --soft HEAD^
     # Not quite as common as an amend, but still common
     # https://git-scm.com/docs/git-reset#git-reset-emgitresetemltmodegtltcommitgt
@@ -58,3 +95,6 @@
 [apply]
     # Detect whitespace errors when applying a patch
     whitespace = fix
+
+[push]
+    default = current

@@ -23,13 +23,9 @@ echo " > Installing xcode-stuff..."
 # Install command line dev tools #
 ##################################
 /usr/bin/xcode-select -p > /dev/null 2>&1
-# if [ $# != 0 ]; then
-#  xcode-select --install
-#  sudo xcodebuild -license accept
-# fi
-
-xcode-select --install
-# sudo xcodebuild -license accept
+if [ $? != 0 ]; then
+    xcode-select --install
+fi
 
 
 ################################################################################
@@ -38,9 +34,9 @@ xcode-select --install
 
 # Check for Homebrew, install it if we don't have it
 if test ! $(which brew); then
-  echo " > Installing homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-  brew doctor || exit 1
+    echo " > Installing homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    brew doctor || exit 1
 fi
 
 echo " > Updating homebrew..."
@@ -58,7 +54,7 @@ brew cask cleanup
 brew cleanup
 rm -f -r /Library/Caches/Homebrew/*
 
-$(brew --prefix)/opt/fzf/install
+$(brew --prefix)/opt/fzf/install --all --no-bash --no-fish
 
 
 ################################################################################
@@ -66,8 +62,17 @@ $(brew --prefix)/opt/fzf/install
 ################################################################################
 
 echo " > Install ZSH"
+zsh_path="$( command -v zsh )"
+if ! grep "$zsh_path" /etc/shells; then
+    echo "adding $zsh_path to /etc/shells"
+    echo "$zsh_path" | sudo tee -a /etc/shells
+fi
+
+if [[ "$SHELL" != "$zsh_path" ]]; then
+    chsh -s "$zsh_path"
+    echo "default shell changed to $zsh_path"
+fi
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-chsh -s $(which zsh)
 
 rm "$HOME"/.zshrc "$HOME"/.zprofile
 ln -s "$HOME"/dotfiles/.zshrc "$HOME"/.zshrc

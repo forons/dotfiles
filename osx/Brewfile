@@ -1,6 +1,5 @@
 cask_args appdir: "/Applications"
 
-tap "adoptopenjdk/openjdk"
 
 brew "autoconf"
 brew "automake"
@@ -45,8 +44,6 @@ brew "python"
 brew "pipenv"
 brew "rbenv"
 brew "rbenv-default-gems"
-brew "scala"
-brew "sbt"
 brew "shellcheck"
 brew "tldr"
 brew "tmux"
@@ -67,13 +64,9 @@ cask "dotnet"
 cask "dropbox"
 cask "firefox"
 cask "google-chrome"
-cask "insomnia"
 cask "hiddenbar"
-# cask "istat-menus"
 cask "iterm2"
-cask "adoptopenjdk11"
 cask "mactex"
-cask "pycharm"
 cask "qlcolorcode"
 cask "qlmarkdown"
 cask "qlstephen"
@@ -99,4 +92,4 @@ mas "iPhoto", id: 408981381
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Xcode", id: 497799835
+mas "Amphetamine", id: 937984704

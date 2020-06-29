@@ -27,3 +27,8 @@ if [ -f "$ZSH_CUSTOM/functions/dedup_PATH" ]; then
   dedup_PATH
 fi
 
+# Bind key: alt-arrow left and right to jump by a word.
+# Zsh/Mac/iTerm2 fix
+bindkey "\e\eOD" backward-word
+bindkey "\e\eOC" forward-word
+
