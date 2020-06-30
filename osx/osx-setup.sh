@@ -24,6 +24,9 @@ fi
 # XCODE
 ################################################################################
 
+echo " > Updating the system..."
+sudo softwareupdate -i -a
+
 echo " > Installing xcode-stuff..."
 ##################################
 # Install command line dev tools #

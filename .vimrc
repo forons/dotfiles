@@ -64,17 +64,17 @@ set mouse=a " Enable use of the mouse for all modes
 let g:startify_custom_header = map(split(system('fortune -as | cowsay -f small'), '\n'), '"   ". v:val') + ['','']
 let g:startify_change_to_vcs_root = 1
 let g:ctrlp_reuse_window  = 'startify'
-if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
-  set t_Co=256
-endif
+ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+   set t_Co=256
+ endif
 
 " ==============================
 "	Color Scheme
 " ==============================
 "
 syntax enable
+" colorscheme solarized
 set background=dark
-colorscheme solarized
 syntax on " Enable syntax highlighting
 let g:solarized_termcolors=256
 let macvim_skip_colorscheme=1
@@ -103,3 +103,4 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+

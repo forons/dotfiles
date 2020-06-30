@@ -51,7 +51,7 @@ brew "trash"
 brew "tree"
 brew "vim"
 brew "watch"
-brew "wget"
+brew "wget", args: ["with-iri"]
 brew "wdiff"
 brew "youtube-dl"
 brew "zsh"
